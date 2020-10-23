@@ -1,35 +1,27 @@
 # mpdnotify
 
-Notifies when mpd's song changes.
+Sends a notification when mpd song changes. Forked from [chuugar's mpdnotify](https://github.com/chuugar/mpdnotify).
 
-![mpdnotify](https://raw.githubusercontent.com/chuugar/mpdnotify/master/screenshot.png)
+![mpdnotify](https://raw.githubusercontent.com/tadeassoucek/mpdnotify/master/screenshot.png)
 
 ## Installation
 
-It has been tested on Debian 9.5, it shall work on any other Linux distribution with Python >= 3.2.
-Please let me now if it works on OSX.
+It has been tested on Manjaro 20.1.2, and it should work on any other Linux distribution with Python >= 3.2.
 
-### PyPa
-
-You can install `mpdnotify` in a single command:
-`pip install mpdnotify`
-
-### Manual
-
-#### Requirements
+### Requirements
 
 * `notify-send`
 * Python >= 3.2
 * [Pillow](https://github.com/python-pillow/Pillow)
 * [python-mpd2](https://github.com/Mic92/python-mpd2)
 
-#### Installation
+### Installation
 
-```
-git clone https://github.com/chuugar/mpdnotify.git
+~~~
+git clone https://github.com/tadeassoucek/mpdnotify.git
 cd mpdnotify
 pip3 install -r requirements.txt -e .
-```
+~~~
 
 ## Usage
 
@@ -45,7 +37,7 @@ A few arguments can be passed to mpdnotify:
 * **`-o` / `--oneshot`**: send a notification and exit immediately.
 * **`-t` / `--timeout`**: amount of milliseconds for which notification will be shown.
 
-All of these arguments can be save in a configuration file, please see [`mpdnotifyrc.sample`](https://github.com/chuugar/mpdnotify/blob/master/mpdnotifyrc.sample) for further informations.
+All of these arguments can be save in a configuration file, please see [`mpdnotifyrc.sample`](https://github.com/tadeassoucek/mpdnotify/blob/master/mpdnotifyrc.sample) for further informations.
 
 **Once running, `mpdnotify` will wait for the next song to send a notification** (unless **`-o` / `--oneshot`** has been passed).
 Cover is used as notification icon if a file called `(cover/front/album).(png/jpg)` is find in the same folder as the music file.
@@ -60,13 +52,8 @@ You can use these values in title and body formats:
 
 If you want to use literal curly brackets, double them like this:
 
-    {{NOW PLAYING}} {title} - {album} ({arist})
+    {{NOW PLAYING}} {title} - {album} ({artist})
 
 That would look like this while playing, for example, the song [IRC by Master Boot Record](https://masterbootrecord.bandcamp.com/track/irc):
 
     {NOW PLAYING} IRC - INTERNET PROTOCOL (MASTER BOOT RECORD)
-
-## TODO
-
-* Add a test suite.
-* If cover cannot be found as an image, look at the tags.
