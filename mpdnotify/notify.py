@@ -88,6 +88,9 @@ class MPD:
     def prepare_format(s):
       return s.format(title=self.title, album=self.album, artist=self.artist)
 
+    if self.title is None and self.album is None and self.artist is None:
+      return
+
     self.title = prepare_format(self.titleformat)
     self.body = prepare_format(self.bodyformat)
 
